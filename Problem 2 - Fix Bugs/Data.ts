@@ -32,6 +32,7 @@ class Data {
     } catch (ex) {
       console.log(ex.message); 	// Asynchronously log the whole error object along with stacktrace to the disk or some other logging system (eg: cloudwatch)
 								// Also, catching generic exceptions should be avoided whenever possible
+								// Also, we should probably rethrow the exception
     }
   };
 
@@ -57,6 +58,7 @@ class Data {
     } catch (ex) {
       console.log(ex.name); // Asynchronously Log the whole error object along with stacktrace to the disk
 							// Also, catching generic exceptions should be avoided whenever possible
+							// Also, we should probably rethrow the exception
     }
   };
 }
