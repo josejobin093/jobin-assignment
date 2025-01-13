@@ -9,6 +9,10 @@ function getFibonacci(N: number): number {
         throw new Error("N cannot be smaller than 1");
     }
 
+    if (N > 9999) {
+        throw new Error("N too large. Should be smaller than 10000");
+    }
+	
     if(N === 1)
         return 0;
 
