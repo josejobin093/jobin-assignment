@@ -1,0 +1,24 @@
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.invisible-div {
+	visibility: hidden;
+}
+
+.centered-div {
+	background: #0fe8ff;
+}
+
+.right-div {
+	background: #ecec10;
+}
+
+.container div {
+	
+}

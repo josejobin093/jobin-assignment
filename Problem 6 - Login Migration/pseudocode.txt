@@ -1,0 +1,31 @@
+
+
+function authenticateUser(userName, userPassword) {
+
+    let userRecord = getUserRecord(userName);
+    
+    if (!userRecord) {
+        return "User does not exist";
+    }
+    
+    if (userRecord.pbkdf2Hash && userRecord.pbkdf2Salt) {
+        if (verifyPbkdf2(userPassword, userRecord.pbkdf2Hash, userRecord.pbkdf2Salt)) {
+            return "Login successful with updated security";
+        } else {
+            return "Invalid credentials";
+        }
+    }
+    
+    else if (userRecord.md5Hash && userRecord.userSalt) {
+        if (verifyMd5(userPassword, userRecord.md5Hash, userRecord.userSalt)) {
+            let newPbkdf2Salt = generateSecureSalt();
+            let newPbkdf2Hash = generatePbkdf2(userPassword, newPbkdf2Salt);
+            updateUserRecord(userName, newPbkdf2Hash, newPbkdf2Salt);
+            return "Login successful, password upgraded";
+        } else {
+            return "Invalid credentials";
+        }
+    }
+    
+    return "Login failed";
+}
