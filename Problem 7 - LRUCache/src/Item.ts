@@ -19,9 +19,6 @@ class Item implements IItem {
     private readLocks: number;
     private isWriteLocked: boolean;
 
-    private nextNode: string | null;
-    private prevNode: string | null;
-
     private readonly dataPath: string = __dirname + "/data/";
 
     constructor(key: string) {
@@ -30,8 +27,6 @@ class Item implements IItem {
         this.expiresAt = null;
         this.readLocks = 0;
         this.isWriteLocked = false;
-        this.nextNode = null;
-        this.prevNode = null;
     }
 
     public isExpired(): boolean {
