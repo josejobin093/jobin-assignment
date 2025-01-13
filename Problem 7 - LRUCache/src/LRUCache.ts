@@ -81,9 +81,8 @@ class LRUCache implements ILRUCache {
     }
 
     public print() {
-        console.log("============================================================================================");
-        this.printOrder();
-        
+        console.log("=====================================================");
+        this.printOrder();        
         
         console.log("mostRecentItem = " + JSON.stringify(this.mostRecentItem));
         console.log("leastRecentItem = " + JSON.stringify(this.leastRecentItem));
